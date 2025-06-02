@@ -2,9 +2,9 @@ import fitz  # PyMuPDF
 import pandas as pd
 import re
 import io
-from pykospacing import Spacing
+# from pykospacing import Spacing
 
-spacing = Spacing()
+# spacing = Spacing()
 
 
 def extract_text_from_pdf(file) -> list:
@@ -45,7 +45,7 @@ def preprocess_page_text(text: str) -> str:
             continue
 
         if re.search(r'[가-힣]', line) and not is_code_line(line):
-            line = spacing(line)
+            # line = spacing(line)
             line = re.sub(r'\b([a-zA-Z]{1,2})\s+([a-zA-Z]{2,})\b', r'\1\2', line)
 
         cleaned_lines.append(line)
