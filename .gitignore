@@ -1,0 +1,11 @@
+venv/
+quizenv/
+.env/
+*.json
+
+__pycache__/
+*.pyc
+
+.streamlit/secrets.toml
+
+*.pdf

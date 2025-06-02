@@ -1,0 +1,5 @@
+streamlit
+pandas
+google-generativeai
+pymupdf
+git+https://github.com/haven-jeon/PyKoSpacing.git
