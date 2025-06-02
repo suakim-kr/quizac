@@ -1,5 +1,6 @@
 import google.generativeai as genai
 import pandas as pd
+import streamlit as st
 from file2txt import pdf_file_to_dataframe
 
 # Gemini API 설정
