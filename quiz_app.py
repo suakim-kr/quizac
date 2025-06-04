@@ -7,7 +7,7 @@ import re
 st.set_page_config(page_title="Quizac", layout="centered")
 st.markdown("<h1 style='text-align: center;'>Quizac</h1>", unsafe_allow_html=True)
 
-uploaded_file = st.file_uploader("PDF 파일을 업로드하세요", type="pdf")
+uploaded_file = st.file_uploader("퀴즈를 만들고 싶은 PDF 파일을 업로드하세요", type="pdf")
 
 if uploaded_file:
     if st.button("퀴즈 만들기"):
