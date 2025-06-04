@@ -5,8 +5,11 @@ from quiz_gen import generate_quiz_from_uploaded_pdf, model
 import re
 
 st.markdown("""
-    <h1 style='text-align: center; color: #4CAF50;'> Quizac </h1>
-    <p style='text-align: center;'>퀴즈 시작! PDF에서 자동으로 나만의 퀴즈를 만들어 보세요!</p>
+    <h1 style='text-align: center;'> Quizac </h1>
+    <p style='text-align: center; font-size: 16px; color: gray;'>
+        PDF만 올리면 퀴즈 시작!<br>
+        강의 자료나 필기 내용을 퀴즈로 만들어 드릴게요 ✨
+    </p>
 """, unsafe_allow_html=True)
 
 uploaded_file = st.file_uploader("PDF 파일 업로드하기", type="pdf")
