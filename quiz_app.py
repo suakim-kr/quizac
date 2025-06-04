@@ -4,13 +4,19 @@ from file2txt import pdf_file_to_dataframe
 from quiz_gen import generate_quiz_from_uploaded_pdf, model
 import re
 
-st.set_page_config(page_title="Quizac", layout="centered")
-st.markdown("<h1 style='text-align: center;'>Quizac</h1>", unsafe_allow_html=True)
+st.markdown("""
+    <h1 style='text-align: center; color: #4CAF50;'> Quizac </h1>
+    <p style='text-align: center;'>퀴즈 시작! PDF에서 자동으로 나만의 퀴즈를 만들어 보세요!</p>
+""", unsafe_allow_html=True)
 
-uploaded_file = st.file_uploader("퀴즈를 만들고 싶은 PDF 파일을 업로드하세요", type="pdf")
+uploaded_file = st.file_uploader("PDF 파일 업로드하기", type="pdf")
 
 if uploaded_file:
-    if st.button("퀴즈 만들기"):
+    col1, col2, col3 = st.columns([2, 1, 2])
+    with col2:
+        start_button = st.button("퀴즈 생성하기", use_container_width=True)
+
+    if start_button:
         with st.spinner("퀴즈를 만들고 있어요..."):
             # Gemini 호출
             raw_quiz = generate_quiz_from_uploaded_pdf(uploaded_file, model)
@@ -87,6 +93,6 @@ if 'quiz_data' in st.session_state and 'raw_quiz' in st.session_state:
     st.download_button(
         label="📥 선생님용 문제 다운로드하기",
         data=st.session_state['raw_quiz'],
-        file_name="quiz_raw_output.txt",
+        file_name="quiz_output.txt",
         mime="text/plain"
     )
